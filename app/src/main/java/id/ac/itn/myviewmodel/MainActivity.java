@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        textView.setText("Ubah isi tanpa viewmodel");
-        //mvm.getData().setValue("Ubah isi dari Viewmodel");  //." getdata() dari livedata ke mutablelivedata di viewmodel");
+       // textView.setText("Ubah isi tanpa viewmodel");
+        //mvm.getData().setValue("Ubah teks dengan setvalue dari activity");  //." getdata() dari livedata ke mutablelivedata di viewmodel");
         //Log.d(TAG, "onClick: ubah data pada event tombol");
-        //mvm.setData("Ubah isi dari Viewmodel");
+        mvm.setData("Ubah isi dari Viewmodel");
     }
 }
