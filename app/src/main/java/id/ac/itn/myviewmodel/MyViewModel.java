@@ -8,10 +8,10 @@ import androidx.lifecycle.ViewModel;
 
 public class MyViewModel extends ViewModel {
     private static final String TAG = "MyViewModel";
+
     private MutableLiveData<String> data;
 
-
-    public LiveData<String> getData() {
+    public MutableLiveData<String> getData() {
         if (data == null) {
             data = new MutableLiveData<>();
             setData("Hallo ViewModel");

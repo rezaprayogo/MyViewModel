@@ -3,7 +3,6 @@ package id.ac.itn.myviewmodel;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.lifecycle.ViewModelProviders;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -24,18 +23,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textView = findViewById(R.id.textView);
         button = findViewById(R.id.button);
         button.setOnClickListener(this);
-        mvm = ViewModelProviders.of(this).get(MyViewModel.class);
+        mvm = new ViewModelProvider(this).get(MyViewModel.class);
+
         mvm.getData().observe(this, new Observer<String>() {
             @Override
             public void onChanged(String s) {
                 textView.setText(s);
-                Log.d(TAG, "onChanged: isi textview");
+                //Log.d(TAG, "onChanged: ubah data ketika onchange");
             }
         });
     }
 
     @Override
     public void onClick(View view) {
-        mvm.setData("Ubah isi dari Viewmodel");
+        textView.setText("Ubah isi tanpa viewmodel");
+        //mvm.getData().setValue("Ubah isi dari Viewmodel");  //." getdata() dari livedata ke mutablelivedata di viewmodel");
+        //Log.d(TAG, "onClick: ubah data pada event tombol");
+        //mvm.setData("Ubah isi dari Viewmodel");
     }
 }
